@@ -2,10 +2,6 @@ pipeline {
     agent {
         docker {
             image 'node:16-alpine'
-            // 1. Run the container as the built-in 'node' user
-            args '-u node'
-            // 2. Use a workspace inside that user's home directory
-            customWorkspace '/home/node/workspace'
         }
     }
     stages {
