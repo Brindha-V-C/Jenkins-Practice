@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:16-alpine'
-            args '-u $(id -u):$(id -g)'
+            args "-u ${sh(returnStdout: true, script: 'id -u').trim()}:${sh(returnStdout: true, script: 'id -g').trim()}"
         }
     }
     stages {
